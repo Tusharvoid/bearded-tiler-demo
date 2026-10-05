@@ -229,6 +229,32 @@ section{padding:clamp(5rem,9vw,8.5rem) 0}
 .svc-row p{color:#5b554b;font-size:.96rem;max-width:34rem}
 @media(max-width:760px){.svc-row{grid-template-columns:64px 1fr}.svc-row p{grid-column:2}}
 
+/* ---------- rates band ---------- */
+.rates-band{
+  margin-top:clamp(2.5rem,5vw,4rem);background:var(--ink);color:var(--bone);
+  display:grid;grid-template-columns:1fr 1.15fr;border:1px solid var(--ink);position:relative;overflow:hidden;
+}
+.rates-band::before{
+  content:"";position:absolute;inset:0;opacity:.05;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='97' viewBox='0 0 56 97'%3E%3Cg fill='none' stroke='%23f2ede3' stroke-width='1'%3E%3Cpolygon points='28,2 53,16 53,44 28,58 3,44 3,16'/%3E%3C/g%3E%3C/svg%3E");
+  background-size:56px 97px;
+}
+.rates-head{padding:clamp(2rem,4vw,3.4rem);border-right:1px solid var(--line-l);position:relative;z-index:2}
+.rates-head h3{font-size:clamp(1.9rem,3.4vw,3rem);font-weight:600;line-height:1.08;margin-bottom:1.1rem}
+.rates-head h3 em{font-style:italic;font-weight:400;color:var(--brass)}
+.rates-head p{color:rgba(242,237,227,.75);font-size:.98rem;margin-bottom:1.8rem;max-width:26rem}
+.rates-grid{display:grid;grid-template-columns:1fr 1fr;position:relative;z-index:2}
+.rates-grid > div{
+  padding:clamp(1.4rem,2.6vw,2.2rem);border-bottom:1px solid var(--line-l);border-right:1px solid var(--line-l);
+  display:flex;flex-direction:column;justify-content:center;gap:.4rem;
+}
+.rates-grid > div:nth-child(2n){border-right:none}
+.rates-grid > div:nth-child(3),.rates-grid > div:nth-child(4){border-bottom:none}
+.rates-grid strong{font-family:'Fraunces',serif;font-size:clamp(1.6rem,2.6vw,2.2rem);font-weight:600;font-style:italic;color:var(--brass);line-height:1}
+.rates-grid span{font-size:.84rem;color:rgba(242,237,227,.72);line-height:1.5;max-width:20rem}
+@media(max-width:860px){.rates-band{grid-template-columns:1fr}.rates-head{border-right:none;border-bottom:1px solid var(--line-l)}}
+@media(max-width:560px){.rates-grid{grid-template-columns:1fr}.rates-grid > div{border-right:none;border-bottom:1px solid var(--line-l)}.rates-grid > div:last-child{border-bottom:none}}
+
 /* ---------- about ---------- */
 .about{background:var(--ink);color:var(--bone);position:relative;overflow:hidden}
 .about .eyebrow{color:var(--brass)}
@@ -516,6 +542,19 @@ footer{background:var(--ink);color:var(--bone);padding:clamp(3rem,6vw,5rem) 0 2r
         <div class="svc-num">04.</div>
         <h3>Prep &amp; making good</h3>
         <p>Boarding, levelling, tanking and demolition-ready strip-outs. The part nobody sees, done like everybody will.</p>
+      </div>
+    </div>
+    <div class="rates-band reveal">
+      <div class="rates-head">
+        <h3>Honest, <em>affordable</em> rates.</h3>
+        <p>Quality tiling doesn't have to cost showroom money. Clear pricing agreed before a single tile is cut — and no surprises on the final invoice.</p>
+        <a class="btn btn-light" href="tel:+447379499622">Get a free quote</a>
+      </div>
+      <div class="rates-grid">
+        <div><strong>Free</strong><span>Quotes &amp; advice — no obligation, no pushiness</span></div>
+        <div><strong>Fixed</strong><span>Price agreed upfront, in writing, before work starts</span></div>
+        <div><strong>Flexible</strong><span>Supply-and-fit, or labour-only if you've bought tiles</span></div>
+        <div><strong>Fair</strong><span>Competitive day and m&sup2; rates for Cornwall</span></div>
       </div>
     </div>
   </div>
