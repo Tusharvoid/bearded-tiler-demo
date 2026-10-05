@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Bearded Tiler — Tiling Contractor, Newquay &amp; Cornwall</title>
+<meta name="description" content="Bathrooms, kitchens and floors tiled to the highest standard across Cornwall. The Bearded Tiler — Newquay. 4.8 stars from 26 Google reviews.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpolygon points='32,4 58,18 58,46 32,60 6,46 6,18' fill='%23171410'/%3E%3Ctext x='32' y='41' font-family='Georgia,serif' font-size='24' fill='%23f2ede3' text-anchor='middle' font-weight='bold'%3EBT%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400;1,9..144,600&family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#171410;
+  --ink2:#211c15;
+  --bone:#f2ede3;
+  --paper:#faf7f0;
+  --stone:#8d8478;
+  --brass:#b27a45;
+  --brass-d:#96652f;
+  --line:rgba(23,20,16,.16);
+  --line-l:rgba(242,237,227,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',system-ui,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.6;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--brass);color:var(--paper)}
+h1,h2,h3,.serif{font-family:'Fraunces',Georgia,serif}
+.eyebrow{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;
+  color:var(--brass);font-weight:500;display:flex;align-items:center;gap:.9rem;
+}
+.eyebrow::before{content:"";width:2.2rem;height:1px;background:var(--brass)}
+.wrap{max-width:1360px;margin:0 auto;padding:0 clamp(1.2rem,4vw,4rem)}
+img{display:block;max-width:100%}
+
+/* ---------- header ---------- */
+header{
+  position:fixed;inset:0 0 auto 0;z-index:60;
+  transition:background .35s,box-shadow .35s,border-color .35s;
+  border-bottom:1px solid transparent;
+}
+header.scrolled{background:rgba(250,247,240,.92);backdrop-filter:blur(14px);border-color:var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:76px}
+.brand{display:flex;align-items:center;gap:.8rem;text-decoration:none;color:var(--ink)}
+.brand svg{width:34px;height:34px}
+.brand-name{font-family:'Fraunces',serif;font-weight:600;font-size:1.06rem;letter-spacing:.01em;line-height:1.05}
+.brand-name small{display:block;font-family:'Space Grotesk',sans-serif;font-weight:400;font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;color:var(--stone);margin-top:.2rem}
+.nav-links{display:flex;gap:2.2rem;list-style:none}
+.nav-links a{
+  font-family:'Space Grotesk',sans-serif;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink);text-decoration:none;position:relative;padding:.3rem 0;
+}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--brass);transition:width .3s}
+.nav-links a:hover::after{width:100%}
+.btn{
+  display:inline-flex;align-items:center;gap:.6rem;
+  font-family:'Space Grotesk',sans-serif;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;font-weight:500;
+  padding:.9rem 1.6rem;text-decoration:none;cursor:pointer;border:1px solid var(--ink);
+  transition:all .3s;
+}
+.btn-solid{background:var(--ink);color:var(--bone)}
+.btn-solid:hover{background:var(--brass);border-color:var(--brass);color:#fff}
+.btn-ghost{color:var(--ink);background:transparent}
+.btn-ghost:hover{background:var(--ink);color:var(--bone)}
+.btn-light{border-color:var(--bone);color:var(--bone);background:transparent}
+.btn-light:hover{background:var(--bone);color:var(--ink)}
+@media(max-width:900px){.nav-links{display:none}}
+
+/* ---------- hero ---------- */
+.hero{
+  min-height:100vh;position:relative;display:flex;align-items:center;
+  padding:120px 0 0;overflow:hidden;
+}
+.hexbg{position:absolute;inset:0;pointer-events:none;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='97' viewBox='0 0 56 97'%3E%3Cg fill='none' stroke='%23171410' stroke-width='1'%3E%3Cpolygon points='28,2 53,16 53,44 28,58 3,44 3,16'/%3E%3Cpolygon points='28,59 53,73 53,94 28,95 3,73 3,44' transform='translate(0,-2)'/%3E%3C/g%3E%3C/svg%3E");
+  background-size:56px 97px;
+}
+.hero-grid{
+  display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2rem,4vw,4rem);align-items:center;
+  position:relative;z-index:2;width:100%;
+}
+.hero h1{
+  font-size:clamp(3.4rem,7.6vw,7.2rem);
+  font-weight:600;line-height:.98;letter-spacing:-.015em;margin:1.6rem 0 1.8rem;
+}
+.hero h1 em{font-style:italic;font-weight:400;color:var(--brass)}
+.hero-sub{max-width:34rem;font-size:1.06rem;color:#4c463d;margin-bottom:2.4rem}
+.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap}
+.hero-meta{
+  display:flex;gap:2.4rem;margin-top:3rem;padding-top:1.6rem;border-top:1px solid var(--line);
+}
+.hero-meta div{font-family:'Space Grotesk',sans-serif;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--stone)}
+.hero-meta strong{display:block;font-family:'Fraunces',serif;font-size:1.5rem;letter-spacing:0;text-transform:none;color:var(--ink);font-weight:600;margin-bottom:.15rem}
+.hero-meta strong span{color:var(--brass)}
+
+.hero-visual{position:relative}
+.hero-photo{
+  position:relative;border:1px solid var(--line);padding:10px;background:var(--paper);
+  transform:rotate(.6deg);
+}
+.hero-photo img{width:100%;height:clamp(420px,58vh,620px);object-fit:cover}
+.hero-photo figcaption{
+  display:flex;justify-content:space-between;gap:1rem;padding:.8rem .2rem .1rem;
+  font-family:'Space Grotesk',sans-serif;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--stone);
+}
+.badge{
+  position:absolute;top:-58px;left:-58px;width:132px;height:132px;z-index:3;
+  animation:spin 22s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+.badge .core{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  animation:spin 22s linear infinite reverse;
+}
+.badge .core div{
+  width:58px;height:58px;border-radius:50%;background:var(--ink);color:var(--bone);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  font-family:'Fraunces',serif;font-weight:600;font-size:1.05rem;line-height:1;
+}
+.badge .core small{font-family:'Space Grotesk',sans-serif;font-size:.42rem;letter-spacing:.14em;margin-top:.2rem;color:var(--brass)}
+.rating-chip{
+  position:absolute;bottom:24px;right:-18px;z-index:3;background:var(--paper);border:1px solid var(--line);
+  padding:.8rem 1.1rem;display:flex;align-items:center;gap:.8rem;box-shadow:0 18px 40px rgba(23,20,16,.14);
+  transform:rotate(-1.4deg);
+}
+.rating-chip .num{font-family:'Fraunces',serif;font-size:1.9rem;font-weight:600;line-height:1}
+.rating-chip .lbl{font-family:'Space Grotesk',sans-serif;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--stone);line-height:1.5}
+.stars{display:flex;gap:2px;color:var(--brass)}
+.stars svg{width:13px;height:13px}
+@media(max-width:1000px){
+  .hero-grid{grid-template-columns:1fr;gap:3.5rem}
+  .hero{padding-top:110px}
+  .badge{left:auto;right:-14px;top:-52px}
+  .rating-chip{right:8px}
+}
+
+/* ---------- ticker ---------- */
+.ticker{
+  background:var(--ink);color:var(--bone);overflow:hidden;white-space:nowrap;
+  border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+  padding:1.1rem 0;margin-top:6rem;
+}
+.ticker-track{display:inline-flex;animation:tick 26s linear infinite}
+.ticker span{
+  font-family:'Fraunces',serif;font-size:1.7rem;font-weight:600;letter-spacing:.04em;
+  padding:0 1.6rem;display:inline-flex;align-items:center;gap:1.6rem;
+}
+.ticker span::after{content:"";width:9px;height:9px;background:var(--brass);transform:rotate(45deg)}
+.ticker span:nth-child(even){color:transparent;-webkit-text-stroke:1px rgba(242,237,227,.55)}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* ---------- sections common ---------- */
+section{padding:clamp(5rem,9vw,8.5rem) 0}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;margin-bottom:clamp(2.5rem,5vw,4.5rem);flex-wrap:wrap}
+.sec-head h2{font-size:clamp(2.4rem,4.6vw,4.2rem);font-weight:600;line-height:1.04;letter-spacing:-.01em;margin-top:1.2rem;max-width:22ch}
+.sec-head h2 em{font-style:italic;font-weight:400;color:var(--brass)}
+.sec-note{max-width:26rem;color:#5b554b;font-size:.95rem;padding-bottom:.4rem}
+.num{font-family:'Space Grotesk',sans-serif;font-size:.72rem;letter-spacing:.28em;color:var(--stone)}
+
+/* ---------- before/after ---------- */
+.ba-wrap{
+  position:relative;border:1px solid var(--line);background:var(--bone);
+  aspect-ratio:16/9.2;overflow:hidden;cursor:ew-resize;user-select:none;touch-action:none;
+}
+.ba-wrap img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.ba-after{clip-path:inset(0 0 0 var(--cut,50%))}
+.ba-handle{
+  position:absolute;top:0;bottom:0;left:var(--cut,50%);width:2px;background:var(--bone);z-index:4;
+  transform:translateX(-1px);box-shadow:0 0 0 1px rgba(23,20,16,.2);
+}
+.ba-handle::after{
+  content:"";position:absolute;top:50%;left:50%;width:52px;height:52px;transform:translate(-50%,-50%);
+  border-radius:50%;background:var(--bone);border:1px solid var(--line);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23171410' stroke-width='2'%3E%3Cpath d='M8 7l-4 5 4 5M16 7l4 5-4 5'/%3E%3C/svg%3E");
+  background-size:26px;background-position:center;background-repeat:no-repeat;
+}
+.ba-tag{
+  position:absolute;top:1.1rem;z-index:3;font-family:'Space Grotesk',sans-serif;
+  font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;font-weight:500;
+  padding:.45rem .85rem;background:rgba(23,20,16,.78);color:var(--bone);
+}
+.ba-tag.b{left:1.1rem}.ba-tag.a{right:1.1rem;background:var(--brass);color:#fff}
+.ba-caption{
+  display:flex;justify-content:space-between;gap:1rem;padding:1rem .2rem 0;
+  font-family:'Space Grotesk',sans-serif;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--stone);
+}
+.ba-caption b{color:var(--ink);font-weight:500}
+
+/* ---------- work grid ---------- */
+.work-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(1rem,2.4vw,2rem)}
+.work-item{position:relative;cursor:zoom-in;overflow:hidden;background:var(--bone)}
+.work-item .ph{overflow:hidden}
+.work-item img{width:100%;height:100%;object-fit:cover;transition:transform 1s cubic-bezier(.2,.6,.2,1),filter .6s}
+.work-item:hover img{transform:scale(1.045)}
+.work-cap{
+  display:flex;justify-content:space-between;align-items:baseline;gap:1rem;
+  padding:.85rem .1rem 0;font-size:.86rem;
+}
+.work-cap b{font-family:'Fraunces',serif;font-weight:600;font-size:1rem}
+.work-cap span{font-family:'Space Grotesk',sans-serif;font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--stone);text-align:right}
+.wi-1{grid-column:span 7}.wi-1 .ph{aspect-ratio:16/10}
+.wi-2{grid-column:span 5}.wi-2 .ph{aspect-ratio:16/10}
+.wi-3{grid-column:span 5}.wi-3 .ph{aspect-ratio:1/1.05}
+.wi-4{grid-column:span 7}.wi-4 .ph{aspect-ratio:16/10.5}
+.wi-5{grid-column:span 4}.wi-5 .ph{aspect-ratio:3/3.6}
+.wi-6{grid-column:span 4}.wi-6 .ph{aspect-ratio:3/3.6}
+.wi-7{grid-column:span 4}.wi-7 .ph{aspect-ratio:3/3.6}
+@media(max-width:820px){.work-grid > *{grid-column:span 12 !important}.work-grid .ph{aspect-ratio:16/11 !important}}
+
+/* ---------- services ---------- */
+.services{background:var(--bone);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.svc-list{border-top:1px solid var(--line)}
+.svc-row{
+  display:grid;grid-template-columns:110px 1fr 1.1fr;gap:2rem;align-items:center;
+  padding:2.2rem 0;border-bottom:1px solid var(--line);transition:background .3s,padding .3s;position:relative;
+}
+.svc-row:hover{background:rgba(178,122,69,.07);padding-left:1rem}
+.svc-num{font-family:'Fraunces',serif;font-size:2rem;font-weight:300;font-style:italic;color:var(--brass)}
+.svc-row h3{font-size:clamp(1.4rem,2.4vw,2rem);font-weight:600}
+.svc-row p{color:#5b554b;font-size:.96rem;max-width:34rem}
+@media(max-width:760px){.svc-row{grid-template-columns:64px 1fr}.svc-row p{grid-column:2}}
+
+/* ---------- about ---------- */
+.about{background:var(--ink);color:var(--bone);position:relative;overflow:hidden}
+.about .eyebrow{color:var(--brass)}
+.about-grid{display:grid;grid-template-columns:1fr .9fr;gap:clamp(2.5rem,6vw,6rem);align-items:center;position:relative;z-index:2}
+.about h2{font-size:clamp(2.4rem,4.6vw,4.2rem);font-weight:600;line-height:1.05;margin:1.4rem 0 1.8rem}
+.about h2 em{font-style:italic;font-weight:400;color:var(--brass)}
+.about p{color:rgba(242,237,227,.78);margin-bottom:1.2rem;max-width:36rem}
+.about p b{color:var(--bone);font-weight:600}
+.about-photo{position:relative;transform:rotate(-1deg)}
+.about-photo .frame{border:1px solid var(--line-l);padding:10px}
+.about-photo img{width:100%;height:clamp(420px,56vh,600px);object-fit:cover}
+.about-photo figcaption{
+  display:flex;justify-content:space-between;padding:.8rem .2rem 0;
+  font-family:'Space Grotesk',sans-serif;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(242,237,227,.5);
+}
+.about .quote-strip{
+  margin-top:2.4rem;padding:1.4rem 0 0;border-top:1px solid var(--line-l);
+  font-family:'Fraunces',serif;font-style:italic;font-size:1.15rem;color:var(--bone);
+}
+.about .quote-strip small{display:block;margin-top:.5rem;font-family:'Space Grotesk',sans-serif;font-style:normal;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--brass)}
+.about .hexbg{opacity:.06;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='97' viewBox='0 0 56 97'%3E%3Cg fill='none' stroke='%23f2ede3' stroke-width='1'%3E%3Cpolygon points='28,2 53,16 53,44 28,58 3,44 3,16'/%3E%3C/g%3E%3C/svg%3E");background-size:56px 97px}
+@media(max-width:900px){.about-grid{grid-template-columns:1fr}}
+
+/* ---------- reviews ---------- */
+.rev-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(1.5rem,3vw,2.5rem)}
+.rev-feature{
+  background:var(--ink);color:var(--bone);padding:clamp(2rem,4vw,3.4rem);
+  display:flex;flex-direction:column;justify-content:space-between;min-height:420px;position:relative;overflow:hidden;
+}
+.rev-feature .qmark{position:absolute;top:-2.4rem;right:.4rem;font-family:'Fraunces',serif;font-size:14rem;font-style:italic;color:rgba(242,237,227,.07);line-height:1}
+.rev-feature .stars{margin-bottom:1.6rem}
+.rev-feature .stars svg{width:16px;height:16px}
+.rev-feature blockquote{font-family:'Fraunces',serif;font-size:clamp(1.3rem,2.2vw,1.8rem);font-style:italic;font-weight:400;line-height:1.42;position:relative;z-index:2}
+.rev-attr{margin-top:2rem;display:flex;align-items:center;gap:1rem}
+.rev-attr .av{width:44px;height:44px;border-radius:50%;background:var(--brass);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-weight:600;font-size:1rem}
+.rev-attr .who{font-family:'Space Grotesk',sans-serif;font-size:.82rem;letter-spacing:.06em}
+.rev-attr .who small{display:block;color:var(--stone);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;margin-top:.15rem}
+.rev-col{display:flex;flex-direction:column;gap:clamp(1.5rem,3vw,2.5rem)}
+.rev-card{border:1px solid var(--line);padding:1.9rem;background:var(--paper);flex:1;display:flex;flex-direction:column;justify-content:space-between;transition:transform .35s,box-shadow .35s}
+.rev-card:hover{transform:translateY(-4px);box-shadow:0 22px 44px rgba(23,20,16,.09)}
+.rev-card .stars{margin-bottom:1rem}
+.rev-card .stars svg{width:12px;height:12px}
+.rev-card p{font-size:.95rem;color:#45403a;margin-bottom:1.4rem}
+.rev-card .who{font-family:'Space Grotesk',sans-serif;font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--stone)}
+.rev-card .who b{color:var(--ink);font-weight:500}
+@media(max-width:900px){.rev-grid{grid-template-columns:1fr}}
+
+/* ---------- contact ---------- */
+.contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(2.5rem,6vw,5rem);align-items:start}
+.contact h2{font-size:clamp(2.6rem,5vw,4.6rem);font-weight:600;line-height:1.02;margin:1.4rem 0 1.6rem}
+.contact h2 em{font-style:italic;font-weight:400;color:var(--brass)}
+.big-phone{
+  font-family:'Fraunces',serif;font-size:clamp(1.9rem,4vw,3.2rem);font-weight:600;color:var(--ink);
+  text-decoration:none;display:inline-block;margin:1rem 0 .4rem;border-bottom:3px solid var(--brass);padding-bottom:.2rem;transition:color .3s;
+}
+.big-phone:hover{color:var(--brass)}
+.addr{color:#5b554b;margin-top:.4rem}
+.hours{border:1px solid var(--line);background:var(--bone)}
+.hours header-row,.hours .hrow{display:flex;justify-content:space-between;padding:1rem 1.4rem;border-bottom:1px solid var(--line);font-size:.94rem}
+.hours .hrow:last-child{border-bottom:none}
+.hours .hrow span:first-child{font-family:'Space Grotesk',sans-serif;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--stone);align-self:center}
+.hours .hrow span:last-child{font-weight:500}
+.hours .hrow.today{background:rgba(178,122,69,.1)}
+.hours .hrow.today span:first-child{color:var(--brass)}
+.hours-head{
+  padding:1.1rem 1.4rem;border-bottom:1px solid var(--line);
+  font-family:'Space Grotesk',sans-serif;font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--brass);font-weight:500;
+}
+@media(max-width:900px){.contact-grid{grid-template-columns:1fr}}
+
+/* ---------- footer ---------- */
+footer{background:var(--ink);color:var(--bone);padding:clamp(3rem,6vw,5rem) 0 2rem;overflow:hidden}
+.foot-word{
+  font-family:'Fraunces',serif;font-weight:700;text-align:center;line-height:.86;
+  font-size:clamp(3.4rem,11.4vw,11.5rem);letter-spacing:.02em;
+  color:transparent;-webkit-text-stroke:1.5px rgba(242,237,227,.34);
+  user-select:none;white-space:nowrap;
+}
+.foot-grid{display:flex;justify-content:space-between;align-items:center;gap:1.5rem;flex-wrap:wrap;margin-top:3rem;padding-top:1.8rem;border-top:1px solid var(--line-l)}
+.foot-grid,.foot-grid a{color:rgba(242,237,227,.6);font-family:'Space Grotesk',sans-serif;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none}
+.foot-grid a:hover{color:var(--brass)}
+.foot-credit{text-align:center;margin-top:1.6rem;color:rgba(242,237,227,.38);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;font-family:'Space Grotesk',sans-serif}
+
+/* ---------- lightbox ---------- */
+.lightbox{
+  position:fixed;inset:0;z-index:100;background:rgba(15,13,10,.94);backdrop-filter:blur(8px);
+  display:none;align-items:center;justify-content:center;flex-direction:column;padding:2.5rem;
+}
+.lightbox.open{display:flex}
+.lb-img{max-width:min(1100px,92vw);max-height:78vh;object-fit:contain;border:1px solid rgba(242,237,227,.15);padding:8px;background:#0d0b09}
+.lb-cap{color:rgba(242,237,227,.75);font-family:'Space Grotesk',sans-serif;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;margin-top:1.1rem;text-align:center}
+.lb-btn{
+  position:absolute;top:50%;transform:translateY(-50%);
+  width:52px;height:52px;border-radius:50%;border:1px solid rgba(242,237,227,.3);background:transparent;color:var(--bone);
+  cursor:pointer;font-size:1.1rem;transition:all .25s;display:flex;align-items:center;justify-content:center;
+}
+.lb-btn:hover{background:var(--brass);border-color:var(--brass)}
+.lb-prev{left:2rem}.lb-next{right:2rem}
+.lb-close{position:absolute;top:1.6rem;right:2rem;background:none;border:none;color:var(--bone);font-size:1.9rem;cursor:pointer;line-height:1;font-family:'Space Grotesk',sans-serif}
+.lb-count{position:absolute;top:2rem;left:2rem;color:rgba(242,237,227,.5);font-family:'Space Grotesk',sans-serif;font-size:.72rem;letter-spacing:.2em}
+
+/* ---------- reveal ---------- */
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .9s cubic-bezier(.2,.6,.2,1),transform .9s cubic-bezier(.2,.6,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}.reveal.d4{transition-delay:.32s}
+@media(prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  .badge,.badge .core,.ticker-track{animation:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ======================= HEADER ======================= -->
+<header id="header">
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="The Bearded Tiler — home">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><polygon points="32,4 58,18 58,46 32,60 6,46 6,18" fill="none" stroke="currentColor" stroke-width="3"/><text x="32" y="41" font-family="Georgia,serif" font-size="22" fill="currentColor" text-anchor="middle" font-weight="bold">BT</text></svg>
+      <span class="brand-name">The Bearded Tiler<small>Newquay &middot; Cornwall</small></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a class="btn btn-solid" href="tel:+447379499622">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+      07379 499622
+    </a>
+  </div>
+</header>
+
+<!-- ======================= HERO ======================= -->
+<div class="hero" id="top">
+  <div class="hexbg"></div>
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow reveal">Tiling contractor &mdash; est. Newquay</p>
+      <h1 class="reveal d1">Set in <em>stone.</em><br>Laid with pride.</h1>
+      <p class="hero-sub reveal d2">Bathrooms, kitchens and floors across Cornwall &mdash; natural stone, large format and metro, cut square, laid level and finished clean. The work speaks; the beard is optional.</p>
+      <div class="hero-ctas reveal d3">
+        <a class="btn btn-solid" href="#work">See the work</a>
+        <a class="btn btn-ghost" href="tel:+447379499622">Call Dan &mdash; 07379 499622</a>
+      </div>
+      <div class="hero-meta reveal d4">
+        <div><strong>4.8<span> / 5</span></strong>Google rating</div>
+        <div><strong>26</strong>Verified reviews</div>
+        <div><strong>100%</strong>Real job photos</div>
+        <div><strong>TR7</strong>Newquay, Cornwall</div>
+      </div>
+    </div>
+    <div class="hero-visual reveal d2">
+      <div class="badge" aria-hidden="true">
+        <svg viewBox="0 0 132 132">
+          <defs><path id="circ" d="M66,66 m-50,0 a50,50 0 1,1 100,0 a50,50 0 1,1 -100,0"/></defs>
+          <text style="font-family:'Space Grotesk',sans-serif;font-size:10.5px;letter-spacing:3.1px;fill:#171410;text-transform:uppercase">
+            <textPath href="#circ">THE BEARDED TILER &middot; NEWQUAY &middot; CORNWALL &middot;&nbsp;</textPath>
+          </text>
+        </svg>
+        <div class="core"><div>4.8<small>GOOGLE</small></div></div>
+      </div>
+      <figure class="hero-photo">
+        <img src="images/p5.jpg" alt="Bathroom with grey stone-effect tiles, black freestanding bath and black wall-hung vanity, tiled by The Bearded Tiler">
+        <figcaption><span>Job photo &mdash; no stock, no renders</span><span>Newquay</span></figcaption>
+      </figure>
+      <div class="rating-chip">
+        <div>
+          <div class="num">4.8</div>
+          <div class="stars" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 22 12 18.2 5.7 22l1.5-7.8L2 9.4l7-.8z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 22 12 18.2 5.7 22l1.5-7.8L2 9.4l7-.8z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 22 12 18.2 5.7 22l1.5-7.8L2 9.4l7-.8z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 22 12 18.2 5.7 22l1.5-7.8L2 9.4l7-.8z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 22 12 18.2 5.7 22l1.5-7.8L2 9.4l7-.8z"/></svg>
+          </div>
+        </div>
+        <div class="lbl">26 Google<br>reviews</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================= TICKER ======================= -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track" id="tickerTrack">
+    <span>Bathrooms</span><span>Kitchens</span><span>Floors</span><span>Natural stone</span><span>Large format</span><span>Metro &amp; mosaic</span><span>Wet rooms</span><span>Niches &amp; detail</span>
+  </div>
+</div>
+
+<!-- ======================= BEFORE / AFTER ======================= -->
+<section id="work">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow reveal"><span class="num">01 /</span> Before &amp; after</p>
+        <h2 class="reveal d1">From tanking to <em>the reveal.</em></h2>
+      </div>
+      <p class="sec-note reveal d2">Drag the handle. Same ensuite &mdash; blue membrane and a black tray on day one, 1200&times;600 large format and bookmatched marble by the end. Every stage prepped properly.</p>
+    </div>
+    <div class="reveal">
+      <div class="ba-wrap" id="baWrap" role="slider" aria-label="Before and after comparison" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" tabindex="0">
+        <img class="ba-before" src="images/p2.jpg" alt="Before: ensuite during preparation with blue tanking membrane, skylight and shower tray">
+        <img class="ba-after" src="images/p4.jpg" alt="After: same ensuite finished with black marble-effect large format tiles and walk-in shower">
+        <span class="ba-tag b">Before &mdash; prep</span>
+        <span class="ba-tag a">After &mdash; 2nd fix</span>
+        <div class="ba-handle" aria-hidden="true"></div>
+      </div>
+      <div class="ba-caption"><span><b>Ensuite, large format</b> &mdash; membrane to marble</span><span>Drag or use arrow keys</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= WORK GRID ======================= -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow reveal"><span class="num">02 /</span> Selected work</p>
+        <h2 class="reveal d1">Straight off the <em>jobs.</em></h2>
+      </div>
+      <p class="sec-note reveal d2">All eight photos below are from real Bearded Tiler jobs around Cornwall &mdash; no stock imagery, no renders. Click any photo to enlarge.</p>
+    </div>
+    <div class="work-grid">
+      <figure class="work-item wi-1 reveal" data-cap="Master shower wall in natural stone hexagons (Fired Earth) with recessed niche">
+        <div class="ph"><img src="images/p1.jpg" alt="Master shower wall fully tiled in natural stone hexagons with recessed niche" loading="lazy"></div>
+        <figcaption class="work-cap"><b>Natural stone hexagons</b><span>Master bathroom</span></figcaption>
+      </figure>
+      <figure class="work-item wi-2 reveal d1" data-cap="Freestanding black bath, grey stone-effect porcelain and black brassware, lit niche">
+        <div class="ph"><img src="images/p5.jpg" alt="Bathroom with black freestanding bath, grey stone tiles and black fittings" loading="lazy"></div>
+        <figcaption class="work-cap"><b>Black &amp; stone bathroom</b><span>Full fit-out</span></figcaption>
+      </figure>
+      <figure class="work-item wi-3 reveal" data-cap="Ensuite with LED-lit ceiling, hexagon stone floor and walk-in shower">
+        <div class="ph"><img src="images/p6.jpg" alt="Modern ensuite with hexagon stone floor, LED ceiling strips and black shower" loading="lazy"></div>
+        <figcaption class="work-cap"><b>Hexagon stone floor</b><span>Ensuite</span></figcaption>
+      </figure>
+      <figure class="work-item wi-4 reveal d1" data-cap="Barbershop fit-out &mdash; dark green metro tiles and checkerboard marble floor; still the talking point five years on">
+        <div class="ph"><img src="images/p3.jpg" alt="Barbershop interior with dark green metro wall tiles and checkerboard marble floor" loading="lazy"></div>
+        <figcaption class="work-cap"><b>Barbershop fit-out</b><span>Commercial &mdash; green metro</span></figcaption>
+      </figure>
+      <figure class="work-item wi-5 reveal" data-cap="Backlit mirror, textured feature wall and recessed niche in a walk-in shower room">
+        <div class="ph"><img src="images/p7.jpg" alt="Bathroom with backlit LED mirror, textured wall tiles and recessed niche" loading="lazy"></div>
+        <figcaption class="work-cap"><b>Backlit mirror wall</b><span>Shower room</span></figcaption>
+      </figure>
+      <figure class="work-item wi-6 reveal d1" data-cap="Freestanding bath detail &mdash; grey concrete-look porcelain, lit niche, black pendants">
+        <div class="ph"><img src="images/p8.jpg" alt="Detail of black freestanding bath with grey tiles and illuminated niche" loading="lazy"></div>
+        <figcaption class="work-cap"><b>Bath detail</b><span>Lit niche</span></figcaption>
+      </figure>
+      <figure class="work-item wi-7 reveal d2" data-cap="Ensuite finished in 1200x600 Atlas Concorde large format with bookmatched marble walls">
+        <div class="ph"><img src="images/p4.jpg" alt="Ensuite with black marble-effect large format tiles and white marble bookmatch walls" loading="lazy"></div>
+        <figcaption class="work-cap"><b>Atlas Concorde 1200&times;600</b><span>Ensuite</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= SERVICES ======================= -->
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow reveal"><span class="num">03 /</span> Services</p>
+        <h2 class="reveal d1">What gets <em>tiled.</em></h2>
+      </div>
+      <p class="sec-note reveal d2">Domestic and light commercial work across Newquay, St Ives, Falmouth, Penzance and the rest of Cornwall. Supply-and-fit or fit-only.</p>
+    </div>
+    <div class="svc-list">
+      <div class="svc-row reveal">
+        <div class="svc-num">01.</div>
+        <h3>Bathroom tiling</h3>
+        <p>Ensuites, family bathrooms and wet rooms &mdash; walls, floors, showers, recessed niches, feature walls and bookmatched marble. Tanking and membrane systems done properly underneath.</p>
+      </div>
+      <div class="svc-row reveal d1">
+        <div class="svc-num">02.</div>
+        <h3>Kitchen tiling</h3>
+        <p>Splashbacks, floors, upstands and the detail around worktops and units. Straight cuts, tight corners, silicone you could set a watch by.</p>
+      </div>
+      <div class="svc-row reveal d2">
+        <div class="svc-num">03.</div>
+        <h3>Floor tiling</h3>
+        <p>Porcelain, ceramic and natural stone &mdash; including large format and hexagon layouts &mdash; on levelled, primed substrates that stay put.</p>
+      </div>
+      <div class="svc-row reveal d3">
+        <div class="svc-num">04.</div>
+        <h3>Prep &amp; making good</h3>
+        <p>Boarding, levelling, tanking and demolition-ready strip-outs. The part nobody sees, done like everybody will.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= ABOUT ======================= -->
+<section class="about" id="about">
+  <div class="hexbg"></div>
+  <div class="wrap about-grid">
+    <div>
+      <p class="eyebrow reveal"><span class="num">04 /</span> About</p>
+      <h2 class="reveal d1">The man behind <em>the beard.</em></h2>
+      <p class="reveal d2"><b>Dan</b> is The Bearded Tiler &mdash; a tiling contractor based in Newquay, working across Cornwall. One trade, done properly: bathrooms, kitchens and floors, from first board to final grout.</p>
+      <p class="reveal d2">The reviews say it better than we can. Clients come back years later &mdash; one barbershop floor in Newquay is <b>still the talking point five years on</b>, and the same client called Dan straight back for a new kitchen. Another had him tile <b>an entire downstairs and five bathrooms</b> on one Cornwall project.</p>
+      <p class="reveal d2">Clean on site, quick to reply, and fussy about the last half-millimetre. That's the whole business plan.</p>
+      <div class="quote-strip reveal d3">
+        &ldquo;His workmanship is pretty much the best I've seen.&rdquo;
+        <small>&mdash; Joanne Faulkner, Google review</small>
+      </div>
+    </div>
+    <figure class="about-photo reveal d2">
+      <div class="frame">
+        <img src="images/p6.jpg" alt="Finished ensuite by The Bearded Tiler with hexagon stone floor and LED-lit shower">
+      </div>
+      <figcaption><span>Recent ensuite &mdash; hexagon stone</span><span>Photo: the job, not a brochure</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ======================= REVIEWS ======================= -->
+<section id="reviews">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow reveal"><span class="num">05 /</span> Reviews</p>
+        <h2 class="reveal d1">Word of <em>mouth.</em></h2>
+      </div>
+      <p class="sec-note reveal d2">Verbatim from Google &mdash; names, dates and all. 4.8 out of 5 across 26 reviews at the time of writing.</p>
+    </div>
+    <div class="rev-grid">
+      <article class="rev-feature reveal">
+        <div class="qmark" aria-hidden="true">&rdquo;</div>
+        <div>
+          <div class="stars" aria-label="5 out of 5 stars">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 22 12 18.2 5.7 22l1.5-7.8L2 9.4l7-.8z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 22 12 18.2 5.7 22l1.5-7.8L2 9.4l7-.8z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 22 12 18.2 5.7 22l1.5-7.8L2 9.4l7-.8z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 22 12 18.2 5.7 22l1.5-7.8L2 9.4l7-.8z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 22 12 18.2 5.7 22l1.5-7.8L2 9.4l7-.8z"/></svg>
+          </div>
+          <blockquote>&ldquo;After the tiling being the talking point of my barbershop that Dan did for me five years ago, there's nobody I would trust more to do our new kitchen fit. As always, the attention to detail and craftsmanship&hellip;&rdquo;</blockquote>
+        </div>
+        <div class="rev-attr">
+          <div class="av">TS</div>
+          <div class="who">Tom Shilton<small>Google review &middot; 5 stars &middot; 9 months ago</small></div>
+        </div>
+      </article>
+      <div class="rev-col">
+        <article class="rev-card reveal d1">
+          <div>
+            <div class="stars" aria-label="5 out of 5 stars">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 22 12 18.2 5.7 22l1.5-7.8L2 9.4l7-.8z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 22 12 18.2 5.7 22l1.5-7.8L2 9.4l7-.8z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 22 12 18.2 5.7 22l1.5-7.8L2 9.4l7-.8z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 22 12 18.2 5.7 22l1.5-7.8L2 9.4l7-.8z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 22 12 18.2 5.7 22l1.5-7.8L2 9.4l7-.8z"/></svg>
+            </div>
+            <p>&ldquo;Dan tiled our beautiful new home in Cornwall &mdash; every bathroom, tiled flooring &mdash; to the highest standard. Fantastic, talented and a great person. Highly recommend.&rdquo;</p>
+          </div>
+          <div class="who"><b>Danielle Cook</b> &middot; 5 stars &middot; 1 year ago</div>
+        </article>
+        <article class="rev-card reveal d2">
+          <div>
+            <div class="stars" aria-label="5 out of 5 stars">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 22 12 18.2 5.7 22l1.5-7.8L2 9.4l7-.8z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 22 12 18.2 5.7 22l1.5-7.8L2 9.4l7-.8z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 22 12 18.2 5.7 22l1.5-7.8L2 9.4l7-.8z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 22 12 18.2 5.7 22l1.5-7.8L2 9.4l7-.8z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 22 12 18.2 5.7 22l1.5-7.8L2 9.4l7-.8z"/></svg>
+            </div>
+            <p>&ldquo;Dan is just fantastic &mdash; he has tiled the entire downstairs and five bathrooms in our Cornwall project. He responds quickly and is as clean and tidy as they come.&rdquo;</p>
+          </div>
+          <div class="who"><b>Joanne Faulkner</b> &middot; 5 stars &middot; 3 years ago</div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= CONTACT ======================= -->
+<section class="contact" id="contact" style="padding-top:0">
+  <div class="wrap contact-grid">
+    <div>
+      <p class="eyebrow reveal"><span class="num">06 /</span> Contact</p>
+      <h2 class="reveal d1">Got a room that<br>needs <em>the beard?</em></h2>
+      <p class="reveal d2" style="max-width:30rem;color:#5b554b">Message a photo of the space, or just call. Quotes across Newquay and the wider Cornwall area.</p>
+      <a class="big-phone reveal d2" href="tel:+447379499622">07379 499622</a>
+      <p class="addr reveal d3">The Bearded Tiler &middot; 15 Century Court, Newquay TR7 3JP</p>
+      <div class="hero-ctas reveal d3" style="margin-top:1.8rem">
+        <a class="btn btn-solid" href="tel:+447379499622">Call now</a>
+        <a class="btn btn-ghost" href="#work">Look at the work again</a>
+      </div>
+    </div>
+    <div class="hours reveal d2">
+      <div class="hours-head">Opening hours</div>
+      <div class="hrow" data-day="1"><span>Monday</span><span>7:00 &ndash; 21:00</span></div>
+      <div class="hrow" data-day="2"><span>Tuesday</span><span>7:00 &ndash; 21:00</span></div>
+      <div class="hrow" data-day="3"><span>Wednesday</span><span>7:00 &ndash; 21:00</span></div>
+      <div class="hrow" data-day="4"><span>Thursday</span><span>7:00 &ndash; 21:00</span></div>
+      <div class="hrow" data-day="5"><span>Friday</span><span>7:00 &ndash; 20:00</span></div>
+      <div class="hrow" data-day="6"><span>Saturday</span><span>Closed</span></div>
+      <div class="hrow" data-day="0"><span>Sunday</span><span>Closed</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= FOOTER ======================= -->
+<footer>
+  <div class="wrap">
+    <div class="foot-word" aria-hidden="true">BEARDED&nbsp;TILER</div>
+    <div class="foot-grid">
+      <span>The Bearded Tiler &middot; Newquay, Cornwall</span>
+      <a href="tel:+447379499622">07379 499622</a>
+      <a href="#top">Back to top</a>
+    </div>
+    <p class="foot-credit">Sample website by Tushar &middot; RudranshCortex &mdash; built as a demo for The Bearded Tiler using real job photos</p>
+  </div>
+</footer>
+
+<!-- ======================= LIGHTBOX ======================= -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <button class="lb-close" id="lbClose" aria-label="Close">&times;</button>
+  <span class="lb-count" id="lbCount">1 / 7</span>
+  <button class="lb-btn lb-prev" id="lbPrev" aria-label="Previous photo"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+  <img class="lb-img" id="lbImg" src="" alt="Job photo enlarged">
+  <p class="lb-cap" id="lbCap"></p>
+  <button class="lb-btn lb-next" id="lbNext" aria-label="Next photo"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></button>
+</div>
+
+<script>
+/* ---------- header ---------- */
+var header = document.getElementById('header');
+function onScroll(){ header.classList.toggle('scrolled', window.scrollY > 24); }
+window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+/* ---------- ticker: duplicate track for seamless loop ---------- */
+var track = document.getElementById('tickerTrack');
+track.innerHTML += track.innerHTML;
+
+/* ---------- reveal on scroll ---------- */
+var io = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+},{threshold:.12, rootMargin:'0px 0px -6% 0px'});
+document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+/* ---------- before / after slider ---------- */
+var ba = document.getElementById('baWrap');
+function setCut(pct){
+  pct = Math.max(2, Math.min(98, pct));
+  ba.style.setProperty('--cut', pct + '%');
+  ba.setAttribute('aria-valuenow', Math.round(pct));
+}
+function baFromEvent(e){
+  var r = ba.getBoundingClientRect();
+  var x = (e.touches ? e.touches[0].clientX : e.clientX) - r.left;
+  setCut(x / r.width * 100);
+}
+var dragging = false;
+ba.addEventListener('pointerdown', function(e){ dragging = true; ba.setPointerCapture(e.pointerId); baFromEvent(e); });
+ba.addEventListener('pointermove', function(e){ if(dragging) baFromEvent(e); });
+ba.addEventListener('pointerup', function(){ dragging = false; });
+ba.addEventListener('pointercancel', function(){ dragging = false; });
+ba.addEventListener('keydown', function(e){
+  var now = parseFloat(getComputedStyle(ba).getPropertyValue('--cut')) || 50;
+  if(e.key === 'ArrowLeft'){ setCut(now - 4); e.preventDefault(); }
+  if(e.key === 'ArrowRight'){ setCut(now + 4); e.preventDefault(); }
+});
+
+/* ---------- lightbox ---------- */
+var items = Array.prototype.slice.call(document.querySelectorAll('.work-item'));
+var photos = items.map(function(it){
+  var img = it.querySelector('img');
+  return { src: img.getAttribute('src'), cap: it.getAttribute('data-cap') || '', alt: img.getAttribute('alt') || '' };
+});
+var lb = document.getElementById('lightbox'),
+    lbImg = document.getElementById('lbImg'),
+    lbCap = document.getElementById('lbCap'),
+    lbCount = document.getElementById('lbCount'),
+    lbIndex = 0;
+function openLb(i){
+  lbIndex = (i + photos.length) % photos.length;
+  lbImg.src = photos[lbIndex].src;
+  lbImg.alt = photos[lbIndex].alt;
+  lbCap.textContent = photos[lbIndex].cap;
+  lbCount.textContent = (lbIndex + 1) + ' / ' + photos.length;
+  lb.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLb(){ lb.classList.remove('open'); document.body.style.overflow = ''; }
+items.forEach(function(it, i){ it.addEventListener('click', function(){ openLb(i); }); });
+document.getElementById('lbClose').addEventListener('click', closeLb);
+document.getElementById('lbPrev').addEventListener('click', function(){ openLb(lbIndex - 1); });
+document.getElementById('lbNext').addEventListener('click', function(){ openLb(lbIndex + 1); });
+lb.addEventListener('click', function(e){ if(e.target === lb) closeLb(); });
+document.addEventListener('keydown', function(e){
+  if(!lb.classList.contains('open')) return;
+  if(e.key === 'Escape') closeLb();
+  if(e.key === 'ArrowLeft') openLb(lbIndex - 1);
+  if(e.key === 'ArrowRight') openLb(lbIndex + 1);
+});
+
+/* ---------- highlight today's hours row ---------- */
+(function(){
+  var day = new Date().getDay();
+  var row = document.querySelector('.hrow[data-day="' + day + '"]');
+  if(row) row.classList.add('today');
+})();
+</script>
+</body>
+</html>
